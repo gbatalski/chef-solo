@@ -22,8 +22,8 @@ sudo ./install.sh
 1. sudo Rechte sind notwendig
 1. Ubuntu ab 11.10 (bei älteren eventuell install.sh anpassen)
 1. Das Repo git://github.com/gbatalski/cookbooks.git wird in das Verzeichnis des ausführenden Benutzers entpakt. 
-1. Die Cookbooks befinden sich danach in dem Verzeichnis ~/cookbooks
-1. Data bags befinden sich in dem Verzeichnis ~/data-bags
+1. Die Cookbooks befinden sich danach in dem Verzeichnis ~/chef-solo/cookbooks
+1. Data bags befinden sich in dem Verzeichnis ~/chef-solo/data-bags
 1. Datei solo.rb enthält einige Pfade und dient als Konfiguration für den chef-solo Aufruf.  
 1. Die Rezeptliste zum Ausführen bezieht chef-solo aus einer json Datei. Diese ist vor dem jeweiligen Aufruf wie etwa im Beispiel solo.json auszufüllen. Natürlich sollen alle Abhängigkeiten erfüllt werden, sprich die Cookbooks und Rezepte mit ihren Abhängigkeiten müssen vorliegen.
 
