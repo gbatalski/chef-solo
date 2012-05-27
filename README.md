@@ -1,13 +1,14 @@
 # chef-solo
 
-## chef-solo installation ubuntu/debian 
-
-
 Dieses Mini-Projekt beherbergt einige simple Anweisungen für die Installation 
 und Verwendung von chef-solo auf einem sauberen Ubuntu/Debian server (z.B. AWS EC2 Instanz). 
 
 Da chef-solo aus dem APT-Repository gleich einige server Komponenten mitbringt, 
 ist seine Verwendung in unserem Fall problematisch.
+
+
+## chef-solo installation ubuntu/debian 
+
  
 ```bash
 sudo apt-get install -y git
