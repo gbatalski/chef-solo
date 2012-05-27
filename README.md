@@ -10,6 +10,7 @@ Da chef-solo aus dem APT-Repository gleich einige server Komponenten mitbringt,
 ist seine Verwendung in unserem Fall problematisch.
  
 ```bash
+sudo apt-get install -y git
 git clone git://github.com/gbatalski/chef-solo.git
 cd chef-solo
 chmod +x install.sh
@@ -22,7 +23,7 @@ sudo ./install.sh
 1. Ubuntu ab 11.10 (bei älteren eventuell install.sh anpassen)
 1. Das Repo git://github.com/gbatalski/cookbooks.git wird in das Verzeichnis des ausführenden Benutzers entpakt. 
 1. Die Cookbooks befinden sich danach in dem Verzeichnis ~/cookbooks
-1. Databages befinden sich in dem Verzeichnis ~/data-bags
+1. Data bags befinden sich in dem Verzeichnis ~/data-bags
 1. Datei solo.rb enthält einige Pfade und dient als Konfiguration für den chef-solo Aufruf.  
 1. Die Rezeptliste zum Ausführen bezieht chef-solo aus einer json Datei. Diese ist vor dem jeweiligen Aufruf wie etwa im Beispiel solo.json auszufüllen. Natürlich sollen alle Abhängigkeiten erfüllt werden, sprich die Cookbooks und Rezepte mit ihren Abhängigkeiten müssen vorliegen.
 
@@ -30,6 +31,6 @@ sudo ./install.sh
 Der Aufruf würde dann wie folgt aussehen.
 
 ```bash
-cd ~/   
-chef-solo -c solo.rb -j solo.json
+cd ~/chef-solo   
+sudo chef-solo -c solo.rb -j solo.json
 ```
