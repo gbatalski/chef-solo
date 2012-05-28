@@ -29,7 +29,7 @@ if [ "$chef_binary" == "" ] ; then
     && git add . && git commit -am"Download cookbook repository created" && cd ..
     
 	# clone all with submodules e.g. recursive
-    git clone --recursive git://github.com/gbatalski/cookbooks.git cookbooks
+    #git clone --recursive git://github.com/gbatalski/cookbooks.git cookbooks
     
 fi
 

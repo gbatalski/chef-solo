@@ -8,7 +8,8 @@ ist seine Verwendung in unserem Fall problematisch.
 
 https://github.com/pjungwir/illuminatedcomputing-chef-solo
 
-Für ubuntu auf ec2 könnte noch das update von mirrors interessant sein:
+Für ubuntu auf ec2 könnte noch das update von mirrors interessant sein (aber nur einmalig!):
+
 
 ```bash
 # replace old mirrors with new s3 based for ubuntu
