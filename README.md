@@ -8,7 +8,17 @@ ist seine Verwendung in unserem Fall problematisch.
 
 https://github.com/pjungwir/illuminatedcomputing-chef-solo
 
+Für ubuntu auf ec2 könnte noch das update von mirrors interessant sein:
+
+```bash
+# replace old mirrors with new s3 based for ubuntu
+    sudo sed -i.dist 's,archive.ubuntu.com,archive.ubuntu.com.s3.amazonaws.com,g' /etc/apt/sources.list  \
+      && sudo apt-get update
+```
+
+
 ## chef-solo installation ubuntu/debian 
+
 
  
 ```bash

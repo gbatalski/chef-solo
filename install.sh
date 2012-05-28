@@ -6,20 +6,15 @@ chef_binary=`which chef-solo`
 knife_binary=`which knife`
 
 # Are we on a vanilla system?
-if [ "$chef_binary" != ""] ; then
+if [ "$chef_binary" == "" ] ; then
     export DEBIAN_FRONTEND=noninteractive
-	# replace old mirrors with new s3 based for ubuntu
-    sudo sed -i.dist 's,archive.ubuntu.com,archive.ubuntu.com.s3.amazonaws.com,g' /etc/apt/sources.list    
-	
+		
 	# Upgrade headlessly (this is only safe-ish on vanilla systems)	
     sudo apt-get update
     
     # forces update of all installed packages
     #sudo apt-get -o Dpkg::Options::="--force-confnew" --force-yes -fuy dist-upgrade
-    
-	# Install git
-	sudo apt-get install -y git
-		
+    			
 	# Install Ruby and Chef
     sudo apt-get install -y ruby1.9.1 ruby1.9.1-dev make
     sudo gem1.9.1 install --no-rdoc --no-ri chef --version 0.10.0 # 0.10.10 got problems with python vitualenv
@@ -31,10 +26,10 @@ if [ "$chef_binary" != ""] ; then
     mkdir cookbooks
     # git clone original cookbooks
     mkdir orig-cookbooks && cd orig-cookbooks && git init && touch .gitignore \
-    && git add && git commit -am"Download cookbook repository created" && cd ..
+    && git add . && git commit -am"Download cookbook repository created" && cd ..
     
 	# clone all with submodules e.g. recursive
-    #git clone --recursive git://github.com/gbatalski/cookbooks.git cookbooks
+    git clone --recursive git://github.com/gbatalski/cookbooks.git cookbooks
     
 fi
 
