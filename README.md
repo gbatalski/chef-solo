@@ -6,6 +6,7 @@ und Verwendung von chef-solo auf einem sauberen Ubuntu/Debian server (z.B. AWS E
 Da chef-solo aus dem APT-Repository gleich einige server Komponenten mitbringt, 
 ist seine Verwendung in unserem Fall problematisch.
 
+https://github.com/pjungwir/illuminatedcomputing-chef-solo
 
 ## chef-solo installation ubuntu/debian 
 
@@ -15,7 +16,7 @@ sudo apt-get install -y git
 git clone git://github.com/gbatalski/chef-solo.git
 cd chef-solo
 chmod +x install.sh
-sudo ./install.sh
+./install.sh
 ```
 
 ## How it works
@@ -28,8 +29,14 @@ sudo ./install.sh
 1. Datei solo.rb enthält einige Pfade und dient als Konfiguration für den chef-solo Aufruf.  
 1. Die Rezeptliste zum Ausführen bezieht chef-solo aus einer json Datei. Diese ist vor dem jeweiligen Aufruf wie etwa im Beispiel solo.json auszufüllen. Natürlich sollen alle Abhängigkeiten erfüllt werden, sprich die Cookbooks und Rezepte mit ihren Abhängigkeiten müssen vorliegen.
 
+Die Installation von Opscode Cookbooks erfolgt in das Verzeichnis orig-cookbooks mittels knife:
 
-Der Aufruf würde dann wie folgt aussehen.
+```bash
+cd ~/chef-solo   
+sudo knife cookbook site install COOKBOOK -c solo.rb
+```
+
+Die Ausführung würde dann wie folgt aussehen:
 
 ```bash
 cd ~/chef-solo   

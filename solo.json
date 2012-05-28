@@ -1,6 +1,14 @@
 // sample json
-{ "run_list": [
-    "recipe[apache2]",
-    "recipe[apache2::mod_php5]"    
+{
+   "cassandra":{
+    "java_heap_size_min" :   "32M",
+    "java_heap_size_max" : "128M",
+    "java_heap_size_eden" : "32M",
+    "home_dir" : "/usr/share/cassandra"
+    },
+   "run_list": [
+    "recipe[cassandra::install_from_package]",
+    "recipe[cassandra::mx4j]",
+    "recipe[cassandra::server]"   
   ]
 }
